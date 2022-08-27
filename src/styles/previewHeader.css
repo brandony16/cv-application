@@ -1,0 +1,31 @@
+.previewHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.prevHeaderWrap {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.previewName {
+    height: 4.2rem;
+    font-size: 4rem;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+}
+
+.previewTitle {
+    font-size: 1.5rem;
+}
+
+.previewPicture {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
