@@ -1,0 +1,15 @@
+.previewCV {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 40vw;
+    height: 80vh;
+    background-color: rgb(207, 207, 207);
+}
+
+.sidebarWrap {
+    background-color: black;
+}
+
+.mainWrap {
+    
+}
