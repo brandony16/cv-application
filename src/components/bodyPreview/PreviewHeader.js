@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/previewHeader.css";
+import "../../styles/previewStyles/previewHeader.css";
 
 class PreviewHeader extends React.Component {
     render() {

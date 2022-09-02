@@ -1,0 +1,45 @@
+.sidebar {
+    height: 100%;
+    width: calc(675px/3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 16px;
+    gap: 8px;
+}
+
+.profilePic {
+    width: 200px;
+    height: 200px;
+}
+
+.previewSideHeader {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: rgb(44, 192, 44) 2px solid;
+    width: 100%;
+}
+
+.previewSideText {
+    font-size: 0.8rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebarComp {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.previewSideList {
+    list-style-position: inside;
+}

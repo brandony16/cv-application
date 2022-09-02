@@ -1,7 +1,7 @@
 import React from "react";
 import PreviewHeader from "./PreviewHeader";
 import PreviewSidebar from "./PreviewSidebar";
-import "../../styles/Preview.css";
+import "../../styles/previewStyles/Preview.css";
 
 class PreviewCV extends React.Component {
     render() {
