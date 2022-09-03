@@ -10,7 +10,7 @@ class PreviewHeader extends React.Component {
                     <div className="previewFirstName">John</div>
                     <div className="previewLastName">Doe</div>
                 </div>              
-                    <div className="previewTitle">Software Engineer</div>
+                    <div className="previewTitle">Web Developer</div>
                 </div>
             </div>
         )

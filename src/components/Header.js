@@ -8,7 +8,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <img src={logo} alt="suitcase logo" className="logo" />
-                <div className="title">CV Application</div>
+                <div className="title">CV Maker</div>
             </div>
         )
     }

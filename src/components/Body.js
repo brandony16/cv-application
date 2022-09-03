@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Body.css";
 import PreviewCV from "./bodyPreview/MainPreview";
+import "../styles/Body.css";
 
 class Body extends React.Component {
     render() {
