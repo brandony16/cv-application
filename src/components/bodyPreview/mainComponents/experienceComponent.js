@@ -3,11 +3,16 @@ import React from "react";
 class ExperienceComponent extends React.Component {
     render() {
         return (
-            <div className="experienceComponent">
-                <div className="previewTimeframe">2018 - Present</div>
-                <div className="mainSubheader">Junior Web Developer</div>         
-                <div className="previewCompany">Tech Corporation</div>
-                <div className="previewCity">Austin, TX</div>
+            <div className="mainSubComponent">
+                <div className="yearWrap">
+                    <div className="previewYear start">2018</div>
+                    <div className="previewYear start">Present</div>
+                </div>
+                <div className="previewMainSubWrap">
+                    <div className="previewMainHeader">Junior Web Developer</div>
+                    <div className="previewMainText">Tech Corporation</div>
+                    <div className="previewMainText">Austin, TX</div>
+                </div>
             </div>
         )
     }

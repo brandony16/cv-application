@@ -1,11 +1,12 @@
 import React from "react";
 import ExperienceComponent from "./experienceComponent";
+import "../../../styles/previewStyles/previewMain.css";
 
 class PreviewExperience extends React.Component {
     render() {
         return (
-            <div className="previewExperience">
-                <div className="previewMainHeader">Work Experience</div>
+            <div className="previewMainWrap">
+                <div className="previewSubHeader">Work Experience</div>
                 <ExperienceComponent />
                 <ExperienceComponent />
                 <ExperienceComponent />

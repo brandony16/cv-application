@@ -13,7 +13,7 @@
 }
 
 .prevHeaderWrap {
-    min-width: 350px;
+    min-width: 375px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,6 +22,7 @@
 }
 
 .previewName {
+    width: 100%;
     display: flex;
     border-bottom: 2px solid rgb(45, 45, 45);
     gap: 18px;

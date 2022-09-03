@@ -11,5 +11,15 @@
 }
 
 .mainWrap {
-    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mainSubWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    padding: 16px;
 }

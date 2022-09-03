@@ -3,7 +3,7 @@ import profilePic from "../../assets/previewBaseImg.jpg";
 import AboutPreview from "./sidebarComponents/AboutPreview";
 import SkillsPreview from "./sidebarComponents/SkillsPreview";
 import ContactPreview from "./sidebarComponents/ContactPreview";
-import "../../styles/previewStyles/sidebarStyles/PreviewSidebar.css";
+import "../../styles/previewStyles/PreviewSidebar.css";
 
 
 class PreviewSidebar extends React.Component {
