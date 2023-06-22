@@ -1,23 +1,64 @@
-  .fileInput::-webkit-file-upload-button {
-    visibility: hidden;
-  }
+.personalWrap {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(143, 143, 143);
+  border-radius: 8px;
+  padding: 16px;
+  gap: 8px;
+}
 
+.persTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
 
-  .fileInput::before {
-    content: 'Photo';
-    display: inline-block;
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 5px 8px;
-    outline: none;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 10pt;
-    color: black;
-  } 
+.about {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  resize: none;
+}
 
-  input[type="file"] {
-    color: rgba(0, 0, 0, 0);
-  }
+.inputsPersonal {
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  grid-template-rows: repeat(4, 2rem);
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.inputPers {
+  background-color: whitesmoke; 
+  border: none;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.fileInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.fileInput::before {
+  content: "Photo";
+  display: inline-block;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+  color: black;
+  width:max-content;
+}
+
+.fileInput {
+  cursor: pointer;
+}
+
+input[type="file"] {
+  color: rgba(0, 0, 0, 0);
+}
