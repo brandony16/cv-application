@@ -17,10 +17,12 @@ class PreviewCV extends React.Component {
 
     render() {
 
+        const selectedImage = this.props.info.find((inform) => inform.name === "pic")?.selected || null;
+
         return (
             <div className="previewCV">
                 <div className="sidebarWrap">
-                    <PreviewSidebar info={this.props.info} selected={this.props.info[7].selected}/>
+                    <PreviewSidebar info={this.props.info} selected={selectedImage}/>
                 </div>  
                 <div className="mainWrap">
                     <PreviewHeader info={this.props.info}/>

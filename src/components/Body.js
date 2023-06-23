@@ -40,8 +40,8 @@ class Body extends React.Component {
         },
         {
           name: "pic",
-          selected: null
-        }
+          selected: null,
+        },
       ],
     };
 
@@ -67,24 +67,34 @@ class Body extends React.Component {
 
   updatePic(file) {
     const newInfo = this.state.info.map((inform) => {
-        if (inform.name === "pic") {
-            inform.selected = file;
-            return inform
-        } else {
-            return inform
-        }
-    })
+      if (inform.name === "pic") {
+        inform.selected = file.target.files[0];
+        return inform;
+      } else {
+        return inform;
+      }
+    });
     this.setState({
-        ...this.state,
-        info: newInfo,
-    })
+      ...this.state,
+      info: newInfo,
+    });
   }
 
   render() {
     return (
       <div className="body">
-        <CVInputs updateTxt={this.updateTxt} updatePic={this.updatePic} info={this.state.info} state={this.state} />
-        <PreviewCV info={this.state.info} selected={this.state.info[7].selected} />
+        <CVInputs
+          updateTxt={this.updateTxt}
+          updatePic={this.updatePic}
+          info={this.state.info}
+          state={this.state}
+        />
+        <PreviewCV
+          info={this.state.info}
+          selected={
+            this.state.info.find((item) => item.name === "pic").selected
+          }
+        />
       </div>
     );
   }
