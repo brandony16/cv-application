@@ -1,25 +1,34 @@
 import React from "react";
-import phone from "../../../assets/phone.png";
-import email from "../../../assets/email-open.png";
-import adress from "../../../assets/map-marker.png";
+import phoneImg from "../../../assets/phone.png";
+import emailImg from "../../../assets/email-open.png";
+import addressImg from "../../../assets/map-marker.png";
 
 class ContactPreview extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
+
     render() {
+
         return (
             <div className="sidebarComp">
                 <div className="previewSideHeader">Contacts</div>
                 <div className="previewInfo">
                     <div className="contactWrap">
-                        <img src={phone} alt="phone" className="previewSideIcon" />
-                        <div className="previewSideText">+1 448-955-1225</div>
+                        <img src={phoneImg} alt="phone" className="previewSideIcon" />
+                        <div className="previewSideText">{this.props.info[4].value}</div>
                     </div>
                     <div className="contactWrap">
-                        <img src={email} alt="email" className="previewSideIcon" />
-                        <div className="previewSideText">RealPerson@NotFake.com</div>
+                        <img src={emailImg} alt="email" className="previewSideIcon" />
+                        <div className="previewSideText">{this.props.info[3].value}</div>
                     </div>
                     <div className="contactWrap">
-                        <img src={adress} alt="adress" className="previewSideIcon" />
-                        <div className="previewSideText">12345 Real Street, FL</div>
+                        <img src={addressImg} alt="adress" className="previewSideIcon" />
+                        <div className="previewSideText">{this.props.info[2].value}</div>
                     </div>
                 </div>
             </div>

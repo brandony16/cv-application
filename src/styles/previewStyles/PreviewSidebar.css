@@ -40,10 +40,6 @@
     line-height: 1.5;
 }
 
-.previewSideList {
-    list-style-position: inside;
-}
-
 .contactWrap {
     display: flex;
     justify-content: flex-start;

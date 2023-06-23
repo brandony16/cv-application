@@ -6,10 +6,10 @@ class Input extends React.Component {
     }
 
     render() {
-        const { type, className, placeholder, onKeyUp, accept, onChange } = this.props;
+        const { type, className, placeholder, accept, onChange } = this.props;
 
         return(
-            <input type={type} className={className} placeholder={placeholder} onKeyUp={onKeyUp} accept={accept} onChange={onChange} />
+            <input type={type} className={className} placeholder={placeholder} accept={accept} onChange={onChange} />
         );
     }
 }
