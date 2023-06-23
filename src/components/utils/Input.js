@@ -3,13 +3,17 @@ import React from "react";
 class Input extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+
+        }
     }
 
     render() {
-        const { type, className, placeholder, accept, onChange } = this.props;
+        const { type, className, placeholder, accept, value } = this.props;
 
         return(
-            <input type={type} className={className} placeholder={placeholder} accept={accept} onChange={onChange} />
+            <input type={type} value={value} onChange={this.props.updateTxt} className={className} placeholder={placeholder} accept={accept}  />
         );
     }
 }

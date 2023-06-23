@@ -22,7 +22,7 @@ class PreviewSidebar extends React.Component {
         return(
             <div className="sidebar">
                 <img src={profilePic} alt="you" className="profilePic" />
-                <ContactPreview info={this.props.info}/>
+                <ContactPreview info={this.props.info} />
                 <AboutPreview info={this.props.info}/>
                 <SkillsPreview info={this.props.info}/>
             </div>
