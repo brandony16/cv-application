@@ -1,6 +1,5 @@
 import React from "react";
-import Input from "../utils/Input";
-import TextArea from "../utils/textArea";
+import FileUploader from "../utils/FileUploader";
 import "../../styles/inputStyles/inputPersonal.css";
 
 class InputPersonal extends React.Component {
@@ -22,55 +21,62 @@ class InputPersonal extends React.Component {
             name="firstName"
             value={this.props.info[0].value}
             onChange={this.props.updateTxt}
-            required
           ></input>
-          <Input
+          <input
             type="text"
             className="inputPers"
             placeholder="Last Name"
+            name="lastName"
+            value={this.props.info[1].value}
             onChange={this.props.updateTxt}
           />
-          <Input
+          <input
             type="text"
             className="inputPers"
             placeholder="Title"
+            name="title"
+            value={this.props.info[6].value}
             onChange={this.props.updateTxt}
           />
-          <Input
-            type="file"
-            className="inputPers fileInput"
-            accept="img/*"
-            onChange={this.props.updateTxt}
-          />
-          <Input
+          <FileUploader updatePic={this.props.updatePic} />
+          <input
             type="text"
             className="inputPers"
             placeholder="Phone Number"
+            name="phone"
+            value={this.props.info[4].value}
             onChange={this.props.updateTxt}
           />
-          <Input
+          <input
             type="text"
             className="inputPers"
             placeholder="Email Address"
+            name="email"
+            value={this.props.info[3].value}
             onChange={this.props.updateTxt}
           />
-          <Input
+          <input
             type="text"
             className="inputPers"
             placeholder="Address"
+            name="address"
+            value={this.props.info[2].value}
             onChange={this.props.updateTxt}
           />
-          <Input
+          <input
             type="text"
             className="inputPers"
             placeholder="Skills"
             onChange={this.props.updateTxt}
           />
-          <TextArea
+          <textarea
             className="inputPers about"
             rows="3"
             placeholder="About"
+            name="about"
+            value={this.props.info[5].value}
             onChange={this.props.updateTxt}
+            wrap="hard"
           />
         </div>
       </div>

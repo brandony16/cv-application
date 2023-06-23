@@ -17,11 +17,14 @@ class PreviewSidebar extends React.Component {
 
     render() {
 
-        const { profilePic } = this.props;
-
+        if (!this.props.info[7].selected || !((this.props.info[7].selected instanceof Blob) || (this.props.info[7].selected instanceof File))) {
+            console.log(this.props.info[7].selected instanceof Blob);   
+            return <img src="" alt="you" className="profilePic" />;
+          }
+      
         return(
             <div className="sidebar">
-                <img src={profilePic} alt="you" className="profilePic" />
+                <img src={URL.createObjectURL(this.props.info[7].selected)} alt="you" className="profilePic" />
                 <ContactPreview info={this.props.info} />
                 <AboutPreview info={this.props.info}/>
                 <SkillsPreview info={this.props.info}/>

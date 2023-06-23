@@ -14,7 +14,7 @@ class CVInputs extends React.Component {
     render() {
         return (
             <div className="inputs">
-                <InputPersonal updateTxt={this.props.updateTxt} info={this.props.info}/>
+                <InputPersonal updateTxt={this.props.updateTxt} updatePic={this.props.updatePic} info={this.props.info}/>
             </div>
         )
     }
