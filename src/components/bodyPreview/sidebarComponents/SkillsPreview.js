@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../styles/previewStyles/PreviewSidebar.css"
 
 class SkillsPreview extends React.Component {
 
@@ -14,7 +15,11 @@ class SkillsPreview extends React.Component {
         return (
             <div className="sidebarComp">
                 <div className="previewSideHeader">Skills</div>
-                <div className="previewSideList"></div>
+                <ul className="previewSideList">
+                    {this.props.skills.map((skill, i) => (
+                        <li className="skillItem" key={i}>{skill.skill}</li>
+                    ))}
+                </ul>
             </div>
         )
     }

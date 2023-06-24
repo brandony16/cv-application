@@ -1,5 +1,5 @@
 import React from "react";
-import PreviewCV from "./bodyPreview/MainPreview";
+import PreviewCV from "./bodyPreview/PreviewCV";
 import CVInputs from "./bodyInputs/CVInputs";
 import "../styles/Body.css";
 
@@ -142,6 +142,7 @@ class Body extends React.Component {
         />
         <PreviewCV
           info={this.state.info}
+          skills={this.state.skills}
           selected={
             this.state.info.find((item) => item.name === "pic").selected
           }

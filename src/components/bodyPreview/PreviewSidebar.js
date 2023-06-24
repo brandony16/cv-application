@@ -23,7 +23,7 @@ class PreviewSidebar extends React.Component {
                     <img src="" alt="you" className="profilePic" />
                     <ContactPreview info={this.props.info} />
                     <AboutPreview info={this.props.info}/>
-                    <SkillsPreview info={this.props.info}/>
+                    <SkillsPreview skills={this.props.skills}/>
                 </div>
             )
           }
@@ -33,7 +33,7 @@ class PreviewSidebar extends React.Component {
                 <img src={URL.createObjectURL(selectedImage)} alt="you" className="profilePic" />
                 <ContactPreview info={this.props.info} />
                 <AboutPreview info={this.props.info}/>
-                <SkillsPreview info={this.props.info}/>
+                <SkillsPreview skills={this.props.skills}/>
             </div>
         );
     }

@@ -22,7 +22,7 @@ class PreviewCV extends React.Component {
         return (
             <div className="previewCV">
                 <div className="sidebarWrap">
-                    <PreviewSidebar info={this.props.info} selected={selectedImage}/>
+                    <PreviewSidebar info={this.props.info} selected={selectedImage} skills={this.props.skills}/>
                 </div>  
                 <div className="mainWrap">
                     <PreviewHeader info={this.props.info}/>
