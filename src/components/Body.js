@@ -1,7 +1,6 @@
 import React from "react";
 import PreviewCV from "./bodyPreview/MainPreview";
 import CVInputs from "./bodyInputs/CVInputs";
-import FileUploader from "./utils/FileUploader";
 import "../styles/Body.css";
 
 class Body extends React.Component {
@@ -57,7 +56,9 @@ class Body extends React.Component {
 
     this.updateTxt = this.updateTxt.bind(this);
     this.updatePic = this.updatePic.bind(this);
+    this.updateSkillTxt = this.updateSkillTxt.bind(this);
     this.addSkill = this.addSkill.bind(this);
+    this.removeSkill = this.removeSkill.bind(this);
   }
 
   updateTxt(e) {
@@ -81,15 +82,32 @@ class Body extends React.Component {
       if (inform.name === "pic") {
         inform.selected = file.target.files[0];
         return inform;
-      } else {
-        return inform;
       }
+      return inform;
     });
     this.setState({
       ...this.state,
       info: newInfo,
     });
   }
+
+  updateSkillTxt(e) {
+    const index = parseInt(e.target.id);
+    const newSkills = this.state.skills.map((skill, i) => {
+      if (i === index) {
+        return {
+          ...skill,
+          [e.target.name]: e.target.value,
+        };
+      }
+      return skill;
+    });
+  
+    this.setState({
+      skills: newSkills,
+    });
+  }
+  
 
   addSkill(e) {
     e.preventDefault();
@@ -99,13 +117,25 @@ class Body extends React.Component {
     });
   }
 
+  removeSkill(i) {
+    const skillList = [...this.state.skills];
+    skillList.splice(i, 1);
+
+    this.setState({
+      ...this.state,
+      skills: skillList,
+    });
+  }
+
   render() {
     return (
       <div className="body">
         <CVInputs
           updateTxt={this.updateTxt}
           updatePic={this.updatePic}
+          updateSkillTxt={this.updateSkillTxt}
           addSkill={this.addSkill}
+          removeSkill={this.removeSkill}
           info={this.state.info}
           skills={this.state.skills}
           state={this.state}
