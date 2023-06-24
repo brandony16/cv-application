@@ -1,5 +1,6 @@
 import React from "react";
 import InputPersonal from "./personalInput";
+import SkillsInput from "./SkillsInput";
 
 class CVInputs extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class CVInputs extends React.Component {
           updatePic={this.props.updatePic}
           info={this.props.info}
         />
+        <SkillsInput skills={this.props.skills}addSkill={this.props.addSkill}/>
       </div>
     );
   }

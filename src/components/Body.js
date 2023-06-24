@@ -43,10 +43,21 @@ class Body extends React.Component {
           selected: null,
         },
       ],
+
+      skills: [
+        {
+          skill: "",
+        },
+      ],
+
+      newSkill: {
+        skill: "",
+      },
     };
 
     this.updateTxt = this.updateTxt.bind(this);
     this.updatePic = this.updatePic.bind(this);
+    this.addSkill = this.addSkill.bind(this);
   }
 
   updateTxt(e) {
@@ -80,13 +91,23 @@ class Body extends React.Component {
     });
   }
 
+  addSkill(e) {
+    e.preventDefault();
+
+    this.setState({
+      skills: [...this.state.skills, this.state.newSkill],
+    });
+  }
+
   render() {
     return (
       <div className="body">
         <CVInputs
           updateTxt={this.updateTxt}
           updatePic={this.updatePic}
+          addSkill={this.addSkill}
           info={this.state.info}
+          skills={this.state.skills}
           state={this.state}
         />
         <PreviewCV
