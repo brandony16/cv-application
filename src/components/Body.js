@@ -1,6 +1,10 @@
 import React from "react";
 import PreviewCV from "./bodyPreview/PreviewCV";
 import CVInputs from "./bodyInputs/CVInputs";
+import filledState from "./utils/autoFill";
+import resetCV from "./utils/resetCV";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import "../styles/Body.css";
 
 class Body extends React.Component {
@@ -101,6 +105,9 @@ class Body extends React.Component {
     this.removeSkill = this.removeSkill.bind(this);
     this.removeExperience = this.removeExperience.bind(this);
     this.removeEducation = this.removeEducation.bind(this);
+    this.autoFillCV = this.autoFillCV.bind(this);
+    this.resetCV = this.resetCV.bind(this);
+    this.saveCV = this.saveCV.bind(this);
   }
 
   updateTxt(e) {
@@ -238,6 +245,44 @@ class Body extends React.Component {
     });
   }
 
+  autoFillCV() {
+    this.setState({
+      ...this.state,
+      info: filledState.info,
+      skills: filledState.skills,
+      experience: filledState.experience,
+      education: filledState.education,
+    })
+  }
+
+  resetCV() {
+    this.setState({
+      ...this.state,
+      info: resetCV.info,
+      skills: resetCV.skills,
+      experience: resetCV.experience,
+      education: resetCV.education,
+    })
+  }
+  
+  saveCV() {
+    const input = document.getElementById('previewCV');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+
+        const imgProps= pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+        pdf.save("resume.pdf");
+      })
+    ;
+  }
+
+
   render() {
     return (
       <div className="body">
@@ -258,6 +303,9 @@ class Body extends React.Component {
           experience={this.state.experience}
           education={this.state.education}
           state={this.state}
+          autoFillCV={this.autoFillCV}
+          resetCV={this.resetCV}
+          saveCV={this.saveCV}
         />
         <PreviewCV
           info={this.state.info}

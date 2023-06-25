@@ -3,6 +3,7 @@ import InputPersonal from "./PersonalInput";
 import SkillsInput from "./SkillsInput";
 import ExperienceInput from "./ExperienceInput";
 import EducationInput from "./EducationInput";
+import UtilButtons from "./utilButtons";
 import "../../styles/inputStyles/CVInputs.css";
 
 class CVInputs extends React.Component {
@@ -37,6 +38,11 @@ class CVInputs extends React.Component {
           addEducation={this.props.addEducation}
           removeEducation={this.props.removeEducation}
           updateEduTxt={this.props.updateEduTxt}
+        />
+        <UtilButtons
+          autoFillCV={this.props.autoFillCV}
+          resetCV={this.props.resetCV}
+          saveCV={this.props.saveCV}
         />
       </div>
     );

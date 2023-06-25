@@ -16,7 +16,7 @@ class PreviewCV extends React.Component {
       this.props.info.find((inform) => inform.name === "pic")?.selected || null;
 
     return (
-      <div className="previewCV">
+      <div className="previewCV" id="previewCV">
         <div className="sidebarWrap">
           <PreviewSidebar
             info={this.props.info}
