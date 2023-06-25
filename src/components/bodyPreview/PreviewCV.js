@@ -27,7 +27,7 @@ class PreviewCV extends React.Component {
                 <div className="mainWrap">
                     <PreviewHeader info={this.props.info}/>
                     <div className="mainSubWrap">
-                        <PreviewExperience />
+                        <PreviewExperience experience={this.props.experience}/>
                         <PreviewEducation />
                     </div>
                 </div>

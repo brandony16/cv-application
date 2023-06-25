@@ -7,9 +7,9 @@ class PreviewExperience extends React.Component {
         return (
             <div className="previewMainWrap">
                 <div className="previewSubHeader">Work Experience</div>
-                <ExperienceComponent />
-                <ExperienceComponent />
-                <ExperienceComponent />
+                {this.props.experience.map((item, i) => (
+                    <ExperienceComponent experience={this.props.experience} index={i} key={i}/>
+                ))} 
             </div>
         )
     }

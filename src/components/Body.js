@@ -49,16 +49,37 @@ class Body extends React.Component {
         },
       ],
 
+      experience: [
+        {
+          from: "",
+          to: "",
+          position: "",
+          company: "",
+          city: "",
+        },
+      ],
+
       newSkill: {
         skill: "",
+      },
+
+      newExperience: {
+        from: "",
+        to: "",
+        position: "",
+        company: "",
+        city: "",
       },
     };
 
     this.updateTxt = this.updateTxt.bind(this);
     this.updatePic = this.updatePic.bind(this);
     this.updateSkillTxt = this.updateSkillTxt.bind(this);
+    this.updateExpTxt = this.updateExpTxt.bind(this);
     this.addSkill = this.addSkill.bind(this);
+    this.addExperience = this.addExperience.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
+    this.removeExperience = this.removeExperience.bind(this);
   }
 
   updateTxt(e) {
@@ -102,18 +123,42 @@ class Body extends React.Component {
       }
       return skill;
     });
-  
+
     this.setState({
       skills: newSkills,
     });
   }
-  
+
+  updateExpTxt(e) {
+    const index = parseInt(e.target.id);
+    const newExp = this.state.experience.map((item, i) => {
+        if (i === index) {
+            return {
+                ...item,
+                [e.target.name]: e.target.value,
+            }
+        }
+        return item;
+    })
+
+    this.setState({
+        experience: newExp,
+    })
+  }
 
   addSkill(e) {
     e.preventDefault();
 
     this.setState({
       skills: [...this.state.skills, this.state.newSkill],
+    });
+  }
+
+  addExperience(e) {
+    e.preventDefault();
+
+    this.setState({
+        experience: [...this.state.experience, this.state.newExperience],
     });
   }
 
@@ -127,6 +172,16 @@ class Body extends React.Component {
     });
   }
 
+  removeExperience(i) {
+    const expList = [...this.state.experience];
+    expList.splice(i,1);
+
+    this.setState({
+        ...this.state,
+        experience: expList,
+    })
+  }
+
   render() {
     return (
       <div className="body">
@@ -134,15 +189,20 @@ class Body extends React.Component {
           updateTxt={this.updateTxt}
           updatePic={this.updatePic}
           updateSkillTxt={this.updateSkillTxt}
+          updateExpTxt={this.updateExpTxt}
           addSkill={this.addSkill}
+          addExperience={this.addExperience}
           removeSkill={this.removeSkill}
+          removeExperience={this.removeExperience}
           info={this.state.info}
           skills={this.state.skills}
+          experience={this.state.experience}
           state={this.state}
         />
         <PreviewCV
           info={this.state.info}
           skills={this.state.skills}
+          experience={this.state.experience}
           selected={
             this.state.info.find((item) => item.name === "pic").selected
           }
