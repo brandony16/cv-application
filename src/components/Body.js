@@ -59,6 +59,16 @@ class Body extends React.Component {
         },
       ],
 
+      education: [
+        {
+          from: "",
+          to: "",
+          university: "",
+          degreeLvl: "",
+          degreeFld: "",
+        },
+      ],
+
       newSkill: {
         skill: "",
       },
@@ -70,16 +80,27 @@ class Body extends React.Component {
         company: "",
         city: "",
       },
+
+      newEducation: {
+        from: "",
+        to: "",
+        university: "",
+        degreeLvl: "",
+        degreeFld: "",
+      },
     };
 
     this.updateTxt = this.updateTxt.bind(this);
     this.updatePic = this.updatePic.bind(this);
     this.updateSkillTxt = this.updateSkillTxt.bind(this);
     this.updateExpTxt = this.updateExpTxt.bind(this);
+    this.updateEduTxt = this.updateEduTxt.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.addExperience = this.addExperience.bind(this);
+    this.addEducation = this.addEducation.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
     this.removeExperience = this.removeExperience.bind(this);
+    this.removeEducation = this.removeEducation.bind(this);
   }
 
   updateTxt(e) {
@@ -132,18 +153,35 @@ class Body extends React.Component {
   updateExpTxt(e) {
     const index = parseInt(e.target.id);
     const newExp = this.state.experience.map((item, i) => {
-        if (i === index) {
-            return {
-                ...item,
-                [e.target.name]: e.target.value,
-            }
-        }
-        return item;
-    })
+      if (i === index) {
+        return {
+          ...item,
+          [e.target.name]: e.target.value,
+        };
+      }
+      return item;
+    });
 
     this.setState({
-        experience: newExp,
-    })
+      experience: newExp,
+    });
+  }
+
+  updateEduTxt(e) {
+    const index = parseInt(e.target.id);
+    const newEdu = this.state.education.map((item, i) => {
+      if (i === index) {
+        return {
+          ...item,
+          [e.target.name]: e.target.value,
+        };
+      }
+      return item;
+    });
+
+    this.setState({
+      education: newEdu,
+    });
   }
 
   addSkill(e) {
@@ -158,7 +196,15 @@ class Body extends React.Component {
     e.preventDefault();
 
     this.setState({
-        experience: [...this.state.experience, this.state.newExperience],
+      experience: [...this.state.experience, this.state.newExperience],
+    });
+  }
+
+  addEducation(e) {
+    e.preventDefault();
+
+    this.setState({
+      education: [...this.state.education, this.state.newEducation],
     });
   }
 
@@ -174,12 +220,22 @@ class Body extends React.Component {
 
   removeExperience(i) {
     const expList = [...this.state.experience];
-    expList.splice(i,1);
+    expList.splice(i, 1);
 
     this.setState({
-        ...this.state,
-        experience: expList,
-    })
+      ...this.state,
+      experience: expList,
+    });
+  }
+
+  removeEducation(i) {
+    const eduList = [...this.state.education];
+    eduList.splice(i, 1);
+
+    this.setState({
+      ...this.state,
+      education: eduList,
+    });
   }
 
   render() {
@@ -190,19 +246,24 @@ class Body extends React.Component {
           updatePic={this.updatePic}
           updateSkillTxt={this.updateSkillTxt}
           updateExpTxt={this.updateExpTxt}
+          updateEduTxt={this.updateEduTxt}
           addSkill={this.addSkill}
           addExperience={this.addExperience}
+          addEducation={this.addEducation}
           removeSkill={this.removeSkill}
           removeExperience={this.removeExperience}
+          removeEducation={this.removeEducation}
           info={this.state.info}
           skills={this.state.skills}
           experience={this.state.experience}
+          education={this.state.education}
           state={this.state}
         />
         <PreviewCV
           info={this.state.info}
           skills={this.state.skills}
           experience={this.state.experience}
+          education={this.state.education}
           selected={
             this.state.info.find((item) => item.name === "pic").selected
           }

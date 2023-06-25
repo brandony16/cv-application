@@ -2,16 +2,20 @@ import React from "react";
 
 class EducationComponent extends React.Component {
     render() {
+
+        const edu = this.props.education;
+        const index = this.props.index
+
         return (
             <div className="mainSubComponent">
                 <div className="yearWrap">
-                    <div className="previewYear start">2014</div>
-                    <div className="previewYear end">2018</div>
+                    <div className="previewYear start">{edu[index].from}</div>
+                    <div className="previewYear end">{edu[index].to}</div>
                 </div>
                 <div className="previewMainSubWrap">
-                    <div className="previewMainHeader">Stanford University</div>
-                    <div className="previewMainText">Masters</div>
-                    <div className="previewMainText">Computer Science</div>
+                    <div className="previewMainHeader">{edu[index].university}</div>
+                    <div className="previewMainText">{edu[index].degreeLvl}</div>
+                    <div className="previewMainText">{edu[index].degreeFld}</div>
                 </div>
             </div>
         )

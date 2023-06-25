@@ -2,6 +2,7 @@ import React from "react";
 import InputPersonal from "./PersonalInput";
 import SkillsInput from "./SkillsInput";
 import ExperienceInput from "./ExperienceInput";
+import EducationInput from "./EducationInput";
 import "../../styles/inputStyles/CVInputs.css";
 
 class CVInputs extends React.Component {
@@ -30,6 +31,12 @@ class CVInputs extends React.Component {
           addExperience={this.props.addExperience}
           removeExperience={this.props.removeExperience}
           updateExpTxt={this.props.updateExpTxt}
+        />
+        <EducationInput
+          education={this.props.education}
+          addEducation={this.props.addEducation}
+          removeEducation={this.props.removeEducation}
+          updateEduTxt={this.props.updateEduTxt}
         />
       </div>
     );

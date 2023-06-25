@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/inputStyles/inputExperience.css"
 
 class ExperienceInput extends React.Component {
   constructor(props) {
@@ -60,12 +61,19 @@ class ExperienceInput extends React.Component {
                 id={i}
               />
               {this.props.experience.length > 1 && (
-                <button className="removeExp" onClick={() => this.props.removeExperience(i)}>Delete Work Experience</button>
+                <button
+                  className="removeExpBtn"
+                  onClick={() => this.props.removeExperience(i)}
+                >
+                  Delete Work Experience
+                </button>
               )}
             </div>
           ))}
           {this.props.experience.length < 3 && (
-            <button className="addExpBtn" onClick={this.props.addExperience}>Add Work Experience</button>
+            <button className="addExpBtn" onClick={this.props.addExperience}>
+              Add Work Experience
+            </button>
           )}
         </div>
       </div>

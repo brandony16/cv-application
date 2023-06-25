@@ -1,0 +1,63 @@
+.expWrap {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(143, 143, 143);
+    border-radius: 8px;
+    padding: 16px;
+    gap: 8px;
+}
+
+.expTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.expInnerWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.expItemWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.expInput {
+    background-color: whitesmoke; 
+    border: none;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+.addExpBtn{
+    border: none;
+    background-color: whitesmoke;
+    height: 1.7rem;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+}
+
+.addExpBtn:hover, .removeExpBtn:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.removeExpBtn {
+    border: none;
+    background-color: rgb(94, 94, 94);
+    height: 1.7rem;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+}
