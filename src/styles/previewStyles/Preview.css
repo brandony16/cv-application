@@ -1,12 +1,13 @@
 .previewCV {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    width: 675px;
+    min-width: 675px;
+    width: auto;
     min-height: 80vh;
-    height: 80vh;
+    height: auto;
     background-color: rgb(207, 207, 207);
     position: fixed;
-    margin-top: 0%;
+    margin-top: 0;
     margin-left: 50%;
 }
 
@@ -28,50 +29,47 @@
     padding: 16px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1400px) {
     .previewCV {
         transform: scale(0.9);
       }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
     .previewCV {
         transform: scale(0.75);
         flex-shrink: 0;
       }
 }
 
+@media (max-width: 1000px) {
+    .previewCV {
+        transform: scale(1);
+        position: relative;
+        margin-left: 0;
+      }
+}
+
+@media (max-width: 800px) {
+    .previewCV {
+        transform: scale(0.9);
+        position: relative;
+        margin-left: 0;
+      }
+}
+
 @media (max-width: 600px) {
     .previewCV {
+        transform: scale(0.75);
+        position: relative;
+        margin-left: 0;
+      }
+}
+
+@media (max-width: 400px) {
+    .previewCV {
         transform: scale(0.675);
-        flex-shrink: 0;
-      }
-}
-
-@media (max-width: 510px) {
-    .previewCV {
-        transform: scale(0.6);
-        flex-shrink: 0;
-      }
-}
-
-@media (max-width: 450px) {
-    .previewCV {
-        transform: scale(0.525);
-        flex-shrink: 0;
-      }
-}
-
-@media (max-width: 375px) {
-    .previewCV {
-        transform: scale(0.45);
-        flex-shrink: 0;
-      }
-}
-
-@media (max-width: 315px) {
-    .previewCV {
-        transform: scale(0.365);
-        flex-shrink: 0;
+        position: relative;
+        margin-left: 0;
       }
 }

@@ -130,6 +130,7 @@ class Body extends React.Component {
     const newInfo = this.state.info.map((inform) => {
       if (inform.name === "pic") {
         inform.selected = file.target.files[0];
+        console.log(file.target.files[0]);
         return inform;
       }
       return inform;
@@ -247,7 +248,6 @@ class Body extends React.Component {
 
   autoFillCV() {
     this.setState({
-      ...this.state,
       info: filledState.info,
       skills: filledState.skills,
       experience: filledState.experience,
@@ -257,7 +257,6 @@ class Body extends React.Component {
 
   resetCV() {
     this.setState({
-      ...this.state,
       info: resetCV.info,
       skills: resetCV.skills,
       experience: resetCV.experience,

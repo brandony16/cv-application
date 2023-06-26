@@ -20,7 +20,7 @@ class PreviewSidebar extends React.Component {
         if (!selectedImage || !((selectedImage instanceof Blob) || (selectedImage instanceof File))) {
             return (
                 <div className="sidebar">
-                    <img src="" alt="you" className="profilePic" />
+                    <img src={selectedImage} alt="you" className="profilePic" />
                     <ContactPreview info={this.props.info} />
                     <AboutPreview info={this.props.info}/>
                     <SkillsPreview skills={this.props.skills}/>
@@ -30,7 +30,7 @@ class PreviewSidebar extends React.Component {
       
         return(
             <div className="sidebar">
-                <img src={URL.createObjectURL(selectedImage)} alt="you" className="profilePic" />
+                <img src={URL.createObjectURL(selectedImage) || selectedImage} alt="you" className="profilePic" />
                 <ContactPreview info={this.props.info} />
                 <AboutPreview info={this.props.info}/>
                 <SkillsPreview skills={this.props.skills}/>

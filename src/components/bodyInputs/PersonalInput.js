@@ -63,12 +63,6 @@ class InputPersonal extends React.Component {
             value={this.props.info[2].value}
             onChange={this.props.updateTxt}
           />
-          <input
-            type="text"
-            className="inputPers"
-            placeholder="Skills"
-            onChange={this.props.updateTxt}
-          />
           <textarea
             className="inputPers about"
             rows="3"

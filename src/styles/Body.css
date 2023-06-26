@@ -6,3 +6,10 @@
     padding: 1rem;
     justify-content: start;
 }
+
+@media (max-width: 1000px) {
+    .body {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -40,7 +40,7 @@ class EducationInput extends React.Component {
                 className="eduInput"
                 name="university"
                 placeholder="Univeristy"
-                value={edu.position}
+                value={edu.university}
                 onChange={this.props.updateEduTxt}
                 id={i}
               />
@@ -49,7 +49,7 @@ class EducationInput extends React.Component {
                 className="eduInput"
                 name="degreeLvl"
                 placeholder="Degree Level"
-                value={edu.company}
+                value={edu.degreeLvl}
                 onChange={this.props.updateEduTxt}
                 id={i}
               />
@@ -58,7 +58,7 @@ class EducationInput extends React.Component {
                 className="eduInput"
                 name="degreeFld"
                 placeholder="Degree Field"
-                value={edu.city}
+                value={edu.degreeFld}
                 onChange={this.props.updateEduTxt}
                 id={i}
               />

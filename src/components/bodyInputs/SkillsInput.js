@@ -36,7 +36,7 @@ class SkillsInput extends React.Component {
               )}
             </div>
           ))}
-          {this.props.skills.length < 10 && (
+          {this.props.skills.length < 9 && (
             <button className="addSkillBtn" onClick={this.props.addSkill}>
               Add Skill
             </button>
