@@ -6,47 +6,55 @@ import EducationInput from "./EducationInput";
 import UtilButtons from "./utilButtons";
 import "../../styles/inputStyles/CVInputs.css";
 
-class CVInputs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="inputs">
-        <InputPersonal
-          updateTxt={this.props.updateTxt}
-          updatePic={this.props.updatePic}
-          info={this.props.info}
-        />
-        <SkillsInput
-          skills={this.props.skills}
-          addSkill={this.props.addSkill}
-          removeSkill={this.props.removeSkill}
-          updateSkillTxt={this.props.updateSkillTxt}
-        />
-        <ExperienceInput
-          experience={this.props.experience}
-          addExperience={this.props.addExperience}
-          removeExperience={this.props.removeExperience}
-          updateExpTxt={this.props.updateExpTxt}
-        />
-        <EducationInput
-          education={this.props.education}
-          addEducation={this.props.addEducation}
-          removeEducation={this.props.removeEducation}
-          updateEduTxt={this.props.updateEduTxt}
-        />
-        <UtilButtons
-          autoFillCV={this.props.autoFillCV}
-          resetCV={this.props.resetCV}
-          saveCV={this.props.saveCV}
-        />
-      </div>
-    );
-  }
-}
+const CVInputs = ({
+  cv,
+  updateTxt,
+  updatePic,
+  addSkill,
+  removeSkill,
+  updateSkillTxt,
+  addExperience,
+  removeExperience,
+  updateExpTxt,
+  addEducation,
+  removeEducation,
+  updateEduTxt,
+  autoFillCV,
+  resetCV,
+  saveCV,
+}) => {
+  return (
+    <div className="inputs">
+      <InputPersonal
+        updateTxt={updateTxt}
+        updatePic={updatePic}
+        info={cv.info}
+      />
+      <SkillsInput
+        skills={cv.skills}
+        addSkill={addSkill}
+        removeSkill={removeSkill}
+        updateSkillTxt={updateSkillTxt}
+      />
+      <ExperienceInput
+        experience={cv.experience}
+        addExperience={addExperience}
+        removeExperience={removeExperience}
+        updateExpTxt={updateExpTxt}
+      />
+      <EducationInput
+        education={cv.education}
+        addEducation={addEducation}
+        removeEducation={removeEducation}
+        updateEduTxt={updateEduTxt}
+      />
+      <UtilButtons
+        fill={autoFillCV}
+        reset={resetCV}
+        save={saveCV}
+      />
+    </div>
+  );
+};
 
 export default CVInputs;

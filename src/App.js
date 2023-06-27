@@ -3,7 +3,7 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import "./styles/globalStyles.css";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />

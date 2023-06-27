@@ -297,20 +297,13 @@ class Body extends React.Component {
           removeSkill={this.removeSkill}
           removeExperience={this.removeExperience}
           removeEducation={this.removeEducation}
-          info={this.state.info}
-          skills={this.state.skills}
-          experience={this.state.experience}
-          education={this.state.education}
-          state={this.state}
+          cv={this.state}
           autoFillCV={this.autoFillCV}
           resetCV={this.resetCV}
           saveCV={this.saveCV}
         />
         <PreviewCV
-          info={this.state.info}
-          skills={this.state.skills}
-          experience={this.state.experience}
-          education={this.state.education}
+          cv={this.state}
           selected={
             this.state.info.find((item) => item.name === "pic").selected
           }
