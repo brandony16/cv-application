@@ -1,117 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PreviewCV from "./bodyPreview/PreviewCV";
 import CVInputs from "./bodyInputs/CVInputs";
 import filledState from "./utils/autoFill";
-import resetCV from "./utils/resetCV";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import emptyCV from "./utils/resetCV";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 import "../styles/Body.css";
 
-class Body extends React.Component {
-  constructor(props) {
-    super(props);
+const Body = () => {
+  const [cv, setCV] = useState(emptyCV);
 
-    this.state = {
-      info: [
-        {
-          name: "firstName",
-          value: "",
-        },
-        {
-          name: "lastName",
-          value: "",
-        },
-        {
-          name: "address",
-          value: "",
-        },
-        {
-          name: "email",
-          value: "",
-        },
-        {
-          name: "phone",
-          value: "",
-        },
-        {
-          name: "about",
-          value: "",
-        },
-        {
-          name: "title",
-          value: "",
-        },
-        {
-          name: "pic",
-          selected: null,
-        },
-      ],
-
-      skills: [
-        {
-          skill: "",
-        },
-      ],
-
-      experience: [
-        {
-          from: "",
-          to: "",
-          position: "",
-          company: "",
-          city: "",
-        },
-      ],
-
-      education: [
-        {
-          from: "",
-          to: "",
-          university: "",
-          degreeLvl: "",
-          degreeFld: "",
-        },
-      ],
-
-      newSkill: {
-        skill: "",
-      },
-
-      newExperience: {
-        from: "",
-        to: "",
-        position: "",
-        company: "",
-        city: "",
-      },
-
-      newEducation: {
-        from: "",
-        to: "",
-        university: "",
-        degreeLvl: "",
-        degreeFld: "",
-      },
-    };
-
-    this.updateTxt = this.updateTxt.bind(this);
-    this.updatePic = this.updatePic.bind(this);
-    this.updateSkillTxt = this.updateSkillTxt.bind(this);
-    this.updateExpTxt = this.updateExpTxt.bind(this);
-    this.updateEduTxt = this.updateEduTxt.bind(this);
-    this.addSkill = this.addSkill.bind(this);
-    this.addExperience = this.addExperience.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.removeSkill = this.removeSkill.bind(this);
-    this.removeExperience = this.removeExperience.bind(this);
-    this.removeEducation = this.removeEducation.bind(this);
-    this.autoFillCV = this.autoFillCV.bind(this);
-    this.resetCV = this.resetCV.bind(this);
-    this.saveCV = this.saveCV.bind(this);
-  }
-
-  updateTxt(e) {
-    const newInfo = this.state.info.map((inform) => {
+  const updateTxt = (e) => {
+    const newInfo = cv.info.map((inform) => {
       if (inform.name === e.target.name) {
         inform.value = e.target.value;
         return inform;
@@ -120,30 +20,29 @@ class Body extends React.Component {
       }
     });
 
-    this.setState({
-      ...this.state,
+    setCV((prevState) => ({
+      ...prevState,
       info: newInfo,
-    });
-  }
+    }));
+  };
 
-  updatePic(file) {
-    const newInfo = this.state.info.map((inform) => {
+  const updatePic = (file) => {
+    const newInfo = cv.info.map((inform) => {
       if (inform.name === "pic") {
         inform.selected = file.target.files[0];
-        console.log(file.target.files[0]);
         return inform;
       }
       return inform;
     });
-    this.setState({
-      ...this.state,
+    setCV((prevState) => ({
+      ...prevState,
       info: newInfo,
-    });
-  }
+    }));
+  };
 
-  updateSkillTxt(e) {
+  const updateSkillTxt = (e) => {
     const index = parseInt(e.target.id);
-    const newSkills = this.state.skills.map((skill, i) => {
+    const newSkills = cv.skills.map((skill, i) => {
       if (i === index) {
         return {
           ...skill,
@@ -153,14 +52,15 @@ class Body extends React.Component {
       return skill;
     });
 
-    this.setState({
+    setCV((prevState) => ({
+      ...prevState,
       skills: newSkills,
-    });
-  }
+    }));
+  };
 
-  updateExpTxt(e) {
+  const updateExpTxt = (e) => {
     const index = parseInt(e.target.id);
-    const newExp = this.state.experience.map((item, i) => {
+    const newExp = cv.experience.map((item, i) => {
       if (i === index) {
         return {
           ...item,
@@ -170,14 +70,15 @@ class Body extends React.Component {
       return item;
     });
 
-    this.setState({
+    setCV((prevState) => ({
+      ...prevState,
       experience: newExp,
-    });
-  }
+    }));
+  };
 
-  updateEduTxt(e) {
+  const updateEduTxt = (e) => {
     const index = parseInt(e.target.id);
-    const newEdu = this.state.education.map((item, i) => {
+    const newEdu = cv.education.map((item, i) => {
       if (i === index) {
         return {
           ...item,
@@ -187,130 +88,137 @@ class Body extends React.Component {
       return item;
     });
 
-    this.setState({
+    setCV((prevState) => ({
+      ...prevState,
       education: newEdu,
-    });
-  }
+    }));
+  };
 
-  addSkill(e) {
+  const addSkill = (e) => {
     e.preventDefault();
 
-    this.setState({
-      skills: [...this.state.skills, this.state.newSkill],
-    });
-  }
+    setCV((prevState) => ({
+      ...prevState,
+      skills: [
+        ...prevState.skills,
+        {
+          skill: "",
+        },
+      ],
+    }));
+  };
 
-  addExperience(e) {
+  const addExperience = (e) => {
     e.preventDefault();
 
-    this.setState({
-      experience: [...this.state.experience, this.state.newExperience],
-    });
-  }
+    setCV((prevState) => ({
+      ...prevState,
+      experience: [
+        ...prevState.experience,
+        {
+          from: "",
+          to: "",
+          position: "",
+          company: "",
+          city: "",
+        },
+      ],
+    }));
+  };
 
-  addEducation(e) {
+  const addEducation = (e) => {
     e.preventDefault();
 
-    this.setState({
-      education: [...this.state.education, this.state.newEducation],
-    });
-  }
+    setCV((prevState) => ({
+      ...prevState,
+      education: [
+        ...prevState.education,
+        {
+          from: "",
+          to: "",
+          university: "",
+          degreeLvl: "",
+          degreeFld: "",
+        },
+      ],
+    }));
+  };
 
-  removeSkill(i) {
-    const skillList = [...this.state.skills];
+  const removeSkill = (i) => {
+    const skillList = [...cv.skills];
     skillList.splice(i, 1);
 
-    this.setState({
-      ...this.state,
+    setCV((prevState) => ({
+      ...prevState,
       skills: skillList,
-    });
-  }
+    }));
+  };
 
-  removeExperience(i) {
-    const expList = [...this.state.experience];
+  const removeExperience = (i) => {
+    const expList = [...cv.experience];
     expList.splice(i, 1);
 
-    this.setState({
-      ...this.state,
+    setCV((prevState) => ({
+      ...prevState,
       experience: expList,
-    });
-  }
+    }));
+  };
 
-  removeEducation(i) {
-    const eduList = [...this.state.education];
+  const removeEducation = (i) => {
+    const eduList = [...cv.education];
     eduList.splice(i, 1);
 
-    this.setState({
-      ...this.state,
+    setCV((prevState) => ({
+      ...prevState,
       education: eduList,
+    }));
+  };
+
+  const autoFillCV = () => {
+    setCV(filledState);
+  };
+
+  const resetCV = () => {
+    setCV(emptyCV);
+  };
+
+  const saveCV = () => {
+    const input = document.getElementById("previewCV");
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+      pdf.save("resume.pdf");
     });
-  }
+  };
 
-  autoFillCV() {
-    this.setState({
-      info: filledState.info,
-      skills: filledState.skills,
-      experience: filledState.experience,
-      education: filledState.education,
-    })
-  }
-
-  resetCV() {
-    this.setState({
-      info: resetCV.info,
-      skills: resetCV.skills,
-      experience: resetCV.experience,
-      education: resetCV.education,
-    })
-  }
-  
-  saveCV() {
-    const input = document.getElementById('previewCV');
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-
-        const imgProps= pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-        pdf.save("resume.pdf");
-      })
-    ;
-  }
-
-
-  render() {
-    return (
-      <div className="body">
-        <CVInputs
-          updateTxt={this.updateTxt}
-          updatePic={this.updatePic}
-          updateSkillTxt={this.updateSkillTxt}
-          updateExpTxt={this.updateExpTxt}
-          updateEduTxt={this.updateEduTxt}
-          addSkill={this.addSkill}
-          addExperience={this.addExperience}
-          addEducation={this.addEducation}
-          removeSkill={this.removeSkill}
-          removeExperience={this.removeExperience}
-          removeEducation={this.removeEducation}
-          cv={this.state}
-          autoFillCV={this.autoFillCV}
-          resetCV={this.resetCV}
-          saveCV={this.saveCV}
-        />
-        <PreviewCV
-          cv={this.state}
-          selected={
-            this.state.info.find((item) => item.name === "pic").selected
-          }
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="body">
+      <CVInputs
+        updateTxt={updateTxt}
+        updatePic={updatePic}
+        updateSkillTxt={updateSkillTxt}
+        updateExpTxt={updateExpTxt}
+        updateEduTxt={updateEduTxt}
+        addSkill={addSkill}
+        addExperience={addExperience}
+        addEducation={addEducation}
+        removeSkill={removeSkill}
+        removeExperience={removeExperience}
+        removeEducation={removeEducation}
+        cv={cv}
+        autoFillCV={autoFillCV}
+        resetCV={resetCV}
+        saveCV={saveCV}
+      />
+      <PreviewCV cv={cv} />
+    </div>
+  );
+};
 
 export default Body;

@@ -1,4 +1,4 @@
-const resetCV = {
+const emptyCV = {
     info: [
         {
           name: "firstName",
@@ -61,4 +61,4 @@ const resetCV = {
       ],
 }
 
-export default resetCV;
+export default emptyCV;
